@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #qrcode {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="qrcode"></div>
+
+    <script>
+        // Generate QR Code that links to the scan result page
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: window.location.origin + "/scan-result.html",  // full URL to the result page
+            width: 200,
+            height: 200
+        });
+
+        // After 15 seconds, return to the video loop page
+        setTimeout(function() {
+            window.location.href = 'index.html';  // Redirect back to the video loop
+        }, 15000);
+    </script>
+</body>
+</html>
