@@ -18,19 +18,22 @@
     </style>
 </head>
 <body>
-    <video id="loopVideo" autoplay loop>
+    <video id="loopVideo" autoplay muted loop>
         <source src="ad.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
     <script>
-        // Redirect to QR code page on interaction
+        const video = document.getElementById('loopVideo');
+
+        // Play video with sound on interaction
         document.body.addEventListener('click', function() {
-            window.location.href = 'qrcode.html';
+            video.muted = false;  // Unmute the video on user interaction
+            video.play();         // Ensure the video keeps playing
+            window.location.href = 'qrcode.html'; // Redirect to QR code page
         });
 
         // Prevent video from pausing on touch or interaction
-        const video = document.getElementById('loopVideo');
         video.addEventListener('click', function(event) {
             event.preventDefault(); // Prevent video from receiving click events
             window.location.href = 'qrcode.html'; // Trigger redirection
