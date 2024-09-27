@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Sent</title>
+    <title>Transaction Successful</title>
     <style>
         body, html {
             margin: 0;
@@ -12,16 +12,36 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
+            /* Add background image or color */
+            background: url('adimg.jpg') center/cover no-repeat;
+            /* Fallback color if no image is provided */
+            background-color: #e0e0e0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px); /* To add a stylish blur effect on transparent backgrounds */
         }
         .message {
-            font-size: 24px;
-            color: green;
+            font-size: 28px;
+            font-weight: 600;
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        .details {
+            font-size: 16px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="message">+$10 sent to your bank account!</div>
+    <div class="container">
+        <div class="message">₹10 has been successfully credited!</div>
+        <div class="details">Your transaction was completed successfully. Please check your account for confirmation.</div>
+    </div>
 </body>
 </html>
