@@ -35,13 +35,8 @@
         const video = document.getElementById('loopVideo');
         const bgMusic = document.getElementById('bgMusic');
 
-        // Unmute video and play background music on interaction
-        document.body.addEventListener('click', function() {
-            video.muted = false;  // Unmute video
-            video.play();         // Ensure video is playing
-            bgMusic.play();       // Start playing background music
-
-            // Fullscreen logic
+        // Function to request fullscreen
+        function requestFullscreen() {
             if (document.documentElement.requestFullscreen) {
                 document.documentElement.requestFullscreen(); // Go fullscreen
             } else if (document.documentElement.mozRequestFullScreen) { // Firefox
@@ -51,14 +46,18 @@
             } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
                 document.documentElement.msRequestFullscreen();
             }
+        }
 
-            window.location.href = 'qrcode.html'; // Redirect to QR code page
+        // Try to enter fullscreen on page load
+        window.addEventListener('load', function() {
+            requestFullscreen();
         });
 
-        // Prevent video from pausing on touch
-        video.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent video from pausing on click
-            window.location.href = 'qrcode.html'; // Trigger redirection
+        // Unmute video and start background music on interaction
+        document.body.addEventListener('click', function() {
+            video.muted = false;  // Unmute video
+            video.play();         // Ensure video is playing
+            bgMusic.play();       // Start playing background music
         });
     </script>
 </body>
