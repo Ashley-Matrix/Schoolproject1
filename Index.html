@@ -18,13 +18,13 @@
     </style>
 </head>
 <body>
-    <!-- Background Video -->
+    
     <video id="loopVideo" autoplay muted loop>
         <source src="ad.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <!-- Background Music -->
+    
     <audio id="bgMusic" autoplay loop>
         <source src="mp3.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
@@ -33,19 +33,15 @@
     <script>
         const video = document.getElementById('loopVideo');
         const bgMusic = document.getElementById('bgMusic');
-
-        // Unmute video and play background music on interaction
         document.body.addEventListener('click', function() {
-            video.muted = false;  // Unmute video
-            video.play();         // Ensure video is playing
-            bgMusic.play();       // Start playing background music
-            window.location.href = 'qrcode.html'; // Redirect to QR code page
+            video.muted = false;  
+            video.play();         
+            bgMusic.play();       
+            window.location.href = 'qrcode.html'; 
         });
-
-        // Prevent video from pausing on touch
         video.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent video from pausing on click
-            window.location.href = 'qrcode.html'; // Trigger redirection
+            event.preventDefault(); 
+            window.location.href = 'qrcode.html'; 
         });
     </script>
 </body>
